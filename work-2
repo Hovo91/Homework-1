@@ -1,0 +1,34 @@
+function checkDigitDiference(firstNumber, secondNumber) {
+  let check = firstNumber + '' + secondNumber;
+  let checkLength = check.length;
+  let found = true;
+  
+  for (let i = 0; i < checkLength; i++) {
+    if (+check[i] % 2 === 0){
+    } else {
+      found = false;
+      return found;
+    }
+  }
+  return found; 
+}
+
+function makeEvenArr(firstNumber, secondNumber) {
+  let result = '';
+  let check = checkDigitDiference(firstNumber, secondNumber);
+
+  if (check === true) {
+    for (let i = firstNumber; i <= secondNumber; i += 2) {
+      if (i === secondNumber) { 
+        result += secondNumber; 
+       } else {
+        result += i + ',';
+      }
+    }
+  } else {
+    return 'Such numbers does not exist.';
+  }
+  return   '\"' + result + '\"';
+}
+
+console.log(makeEvenArr(20, 42));
