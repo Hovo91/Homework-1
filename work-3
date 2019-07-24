@@ -1,12 +1,11 @@
-function isNumberDigitsOdd(number) {
+function isNumDigitsOdd(number) {
     let lastDigit = number % 10;
-    if (lastDigit === 0) {
-        return true;
-    } else if (lastDigit % 2 === 0) {
+    if (lastDigit % 2 !== 0 && number !== 0) {
+        return isNumDigitsOdd(Math.floor(number / 10))
+    } else if (number !== 0) {
         return false;
-    } else {
-        return isNumberDigitsOdd((number - lastDigit) / 10);
     }
+    return true;
 }
 
-console.log(isNumberDigitsOdd(1111113597));
+console.log(isNumDigitsOdd(7791));
