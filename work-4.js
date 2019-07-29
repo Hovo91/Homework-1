@@ -1,12 +1,9 @@
-let i = 0;
-let result = Infinity;
-
-function getMin(array) {
+function getMin(array, i = 0, result = Infinity) {
   if (array[i] < result && array[i] >= 0) {
       result = array[i];
   }
   if (array[i] !== undefined) {
-      getMin(array, i++);
+      return getMin(array, ++i, result);
   }
   return result >= 0 && result !== Infinity ? result : -1;
 }
